@@ -19,15 +19,18 @@ def compare(guess,value_a, value_b):
 print(logo)
 score = 0
 game_should_continue = True
+choice_two = choice(data)
 
 
 # make the game repeatable
 
 while game_should_continue:
     # generate a random account from the game data
-    choice_one = choice(data)
+    choice_one = choice_two
     choice_two = choice(data)
-    if choice_two == choice_one:
+
+    """make sure accounts are not simmilar"""
+    while choice_two == choice_one:
       choice_two = choice(data)
 
     # Format choices into printable data
@@ -53,3 +56,12 @@ while game_should_continue:
         game_should_continue = False
         print(f"You got it wrong.Final score: {score}")
 
+# make the account at position B be at the first position in the next iteration
+
+"""
+make choice B a global variable
+set choice a = the choice b global variable
+generate a new choice b in the loop
+
+
+"""
